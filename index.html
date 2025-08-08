@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belle Mélodie du Christ</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #05775b;
+      color: #f5f5dc;
+      padding: 0rem;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .logo-title img {
+      height: 140px;
+      width: auto;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      background-color: #f5f5dc;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      top: 100%;
+      left: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav .submenu li a {
+      color: #05775b;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: #05775b;
+      padding: 0;
+    }
+
+    .search-bar {
+      background-color: #f5f5dc;
+      padding: 1rem 2rem;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+    }
+
+    #suggestions {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      width: 50%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      z-index: 999;
+      list-style: none;
+      padding: 0;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #suggestions li {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+    }
+
+    #suggestions li:hover {
+      background-color: #f0f0f0;
+    }
+
+    .hero {
+  background: url('f.jpg') center/cover no-repeat;
+  color: white;
+  padding: 20rem 1rem; /* Remplacé 30rem 21rem */
+  text-align: center;
+ }
+
+
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .galerie-images {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .galerie-images img {
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .cta a {
+      padding: 1rem 2rem;
+      background-color: #05775b;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+  .logo-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-title img {
+    height: 100px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  #suggestions {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero {
+    padding: 8rem 2rem;
+  }
+
+  .galerie-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  
+<header>
+  <div class="logo-title">
+    <a href="index.html"><img src="logo.jpg" alt="Logo Fanfare" /></a>
+    <div>
+      <h1>Fanfare La Belle Mélodie du Christ</h1>
+      <p>Harmonie, louange et fraternité</p>
+    </div>
+    <img src="ARS.jpg" alt="Image ARS" class="ars-image" />
+  </div>
+</header>
+
+<nav>
+  <ul id="navLinks">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li>
+      <a href="#">Qui sommes-nous ? ▼</a>
+      <ul class="submenu">
+        <li><a href="historique.html">Historique</a></li>
+        <li><a href="directeur.html">Directeur</a></li>
+        <li><a href="Membre.html">Membres</a></li>
+        <li><a href="bureau.html">Bureau et Commission musical</a></li>
+        <li><a href="biographie.html">Biographie des Planificateurs</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nos Réalisations ▼</a>
+      <ul class="submenu">
+        <li><a href="nos.html">Nos Solistes</a></li>
+        <li><a href="enre.html">Enregistrement et Résultats</a></li>
+        <li><a href="image.html">Vidéo</a></li>
+      </ul>
+    </li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+    <li><a href="Instruments.html">Nos Instruments</a></li>
+    <li><a href="login.html">Connexion</a></li>
+    <li><button id="searchBtn" class="search-btn" aria-label="Ouvrir recherche">🔍</button></li>
+  </ul>
+</nav>
+
+<!-- Barre de recherche + suggestions -->
+<div id="searchBar" class="search-bar">
+  <input type="text" placeholder="Rechercher une page..." aria-label="Recherche" />
+  <button id="closeSearch" class="close-btn">✖</button>
+</div>
+<ul id="suggestions"></ul>
+
+<section class="hero">
+  <h2>Bienvenue sur notre site officiel</h2>
+  <p>Rejoignez-nous pour célébrer la foi en musique !</p>
+  <div class="cta">
+    <a href="contact.html">Nous rejoindre</a>
+    <a href="image.html">Voir nos Prestations</a>
+  </div>
+</section>
+
+<section id="Qui sommes-nous">
+  <h2>Qui sommes-nous ?</h2>
+  <p>La Belle Mélodie du Christ est une fanfare chrétienne dédiée à la louange, à l'excellence musicale et à la fraternité. Fondée en 2015, nous animons cultes, mariages, sorties , funérailles et grandes cérémonies spirituelles.</p>
+</section>
+
+<section id="evenements">
+  <h2>Événements</h2>
+  <ul>
+    <li>📅 Excursion - Août 2025</li>
+    <li>🎺 Grande prestation de l'anniversaire de la fanfare - Juin 2025</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Galerie</h2>
+  <p>Photos et vidéos de nos plus belles prestations seront bientôt disponibles ici !</p>
+  <div class="galerie-images">
+    <img src="acc.jpg" alt="Photo 1">
+    <img src="xx.jpg" alt="Photo 2">
+    <img src="fill.jpg" alt="Photo 3">
+    <img src="abb.jpg" alt="Photo 4">
+  </div>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Email : labellemelodieduchrist@gmail.com</p>
+  <p>Téléphone : +228 90 99 77 58</p>
+  <p>Suivez-nous : Facebook | Instagram | YouTube</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const closeBtn = document.getElementById('closeSearch');
+  const searchBar = document.getElementById('searchBar');
+  const navLinks = document.getElementById('navLinks');
+  const input = searchBar.querySelector('input');
+  const suggestionsBox = document.getElementById('suggestions');
+
+ 
+
+  searchBtn.addEventListener('click', () => {
+    navLinks.style.display = 'none';
+    searchBar.style.display = 'flex';
+    input.focus();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    searchBar.style.display = 'none';
+    navLinks.style.display = 'flex';
+    suggestionsBox.style.display = 'none';
+  });
+
+  input.addEventListener('input', () => {
+    const value = input.value.toLowerCase().trim();
+    suggestionsBox.innerHTML = '';
+    if (!value) {
+      suggestionsBox.style.display = 'none';
+      return;
+    }
+
+    const matches = pages.filter(p => p.name.toLowerCase().startsWith(value));
+    if (matches.length > 0) {
+      suggestionsBox.style.display = 'block';
+      matches.forEach(p => {
+        const li = document.createElement('li');
+        li.textContent = p.name;
+        li.addEventListener('click', () => {
+          window.location.href = p.url;
+        });
+        suggestionsBox.appendChild(li);
+      });
+    } else {
+      suggestionsBox.style.display = 'none';
+    }
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const value = input.value.toLowerCase().trim();
+      const match = pages.find(p => p.name.toLowerCase().startsWith(value));
+      if (match) window.location.href = match.url;
+      else alert("Page non trouvée.");
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (!searchBar.contains(e.target)) suggestionsBox.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
+ 
