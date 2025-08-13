@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comité</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f5f5dc;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: none;
+      background: #f5f5dc;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #05775b;
+      margin-top: 2rem;
+    }
+
+    .comite-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+
+    .member {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
+    }
+
+    .member img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .member img:hover {
+      transform: scale(1.05);
+    }
+
+    .member h3 {
+      margin: 1rem 0 0.5rem;
+      color: #05775b;
+    }
+
+    .member p {
+      margin: 0;
+      color: #333;
+    }
+
+    /* Lightbox avec navigation */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .lightbox .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 2rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .lightbox .prev-lightbox,
+    .lightbox .next-lightbox {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    .lightbox .prev-lightbox {
+      left: 20px;
+    }
+
+    .lightbox .next-lightbox {
+      right: 20px;
+    }
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+  .logo-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-title img {
+    height: 100px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  #suggestions {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero {
+    padding: 8rem 2rem;
+  }
+
+  .galerie-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="search-bar" id="searchBar">
+  <input type="text" placeholder="Rechercher...">
+  <button class="close-btn" id="closeSearch">✖</button>
+</div>
+
+<nav>
+  <ul id="navLinks">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li>
+      <a href="#">Qui sommes-nous ? ▼</a>
+      <ul class="submenu">
+        <li><a href="historique.html">Historique</a></li>
+        <li><a href="directeur.html">Directeur</a></li>
+        <li><a href="Membre.html">Membres</a></li>
+        <li><a href="bureau.html">Bureau et Commission musical</a></li>
+        <li><a href="biographie.html">Biographie des planifications</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nos Réalisations ▼</a>
+      <ul class="submenu">
+        <li><a href="nos.html">Nos Solistes</a></li>
+        <li><a href="enre.html">Enregistrement et Résultats</a></li>
+        <li><a href="Vide.html">Vidéo</a></li>
+      </ul>
+    </li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+     <li><a href="Instruments.html">Nos Instruments</a></li>
+     <li><a href="login.html">Connexion</a></li>
+    <li><button class="search-btn" id="searchBtn">🔍</button></li>
+  </ul>
+</nav>
+
+<h1>Bureau de la Belle Mélodie du Christ</h1>
+
+<section class="comite-container">
+  <!-- Exemple d'éléments, copie les tiens ici -->
+  <div class="member"><img src="aaa.jpg" alt="Mr Komi ALAVI"><h3>Mr Komi ALAVI</h3><p>Président exécutif</p></div>
+  <div class="member"><img src="bbb.jpg" alt="Mr Jean BOCOVI"><h3>Mr Jean BOCOVI</h3><p>Vice Président exécutif</p></div>
+  <div class="member"><img src="ccc.jpg" alt="elom"><h3>Mr Elom AKLADJA</h3><p>Gestionnaire des finances et Secrétaire général</p></div>
+  <div class="member"><img src="fel.jpg" alt="Mr felix"><h3>Mr Félix AZIAMADJI</h3><p>Directeur de la planification</p></div>
+  <div class="member"><img src="aaaa.jpg" alt="Mr Merclin"><h3>Mr Dimiline KAGA</h3><p>Directeur de la planification</p></div>
+  <div class="member"><img src="br.jpg" alt="Mr bright"><h3>Mr Bright ASSOGBA</h3><p>Directeur Technique, analyse Technique des prestations et Auditeur interne</p></div>
+  <div class="member"><img src="bri.jpg" alt="Mr francis"><h3>Mr Francis AGBOGAN</h3><p>Major Basse, Analyse Technique des prestations, Assistant Gestionnaire et Secrétaire général.</p></div>
+  <div class="member"><img src="aaaaaa.jpg" alt="Mr selom"><h3>Mr Sélom AKPAKLI</h3><p>Conseiller</p></div>
+  <div class="member"><img src="aaaaa.jpg" alt="Mr ina"><h3>Mme Ina ABOUBACAR</h3><p> Conseillère</p></div>
+  <div class="member"><img src="bbbb.jpg" alt="Mr mawuli"><h3>Mr Mawuli NOVON </h3><p>Conseiller </p></div>
+</section>
+
+
+<h1>Commission Musical</h1>
+
+<section class="comite-container">
+
+  <div class="member"><img src="asso.jpg" alt="Mr Bright"><h3>Mr Bright ASSOGBA</h3><p> Major Soprano</p></div>
+  <div class="member"><img src="baa.jpg" alt="Mr Courage"><h3>Mr Courage TAMAKLOE </h3><p>Major Alto</p></div>
+  <div class="member"><img src="seyram.jpg" alt="seyram"><h3>Mr Séyram TOMETI </h3><p>Major Tenor</p></div>
+  <div class="member"><img src="françois.jpg" alt="Mr francis"><h3>Mr Francis AGBOGAN</h3><p>Major Basse</p></div>
+  <div class="member"><img src="nestor.jpg" alt="Mr selom"><h3>Mr Nestor NOVON</h3><p>Major Percussion</p></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="close-lightbox" id="closeLightbox">✖</button>
+  <button class="prev-lightbox" id="prevLightbox">⬅</button>
+  <img src="" alt="Agrandissement" id="lightboxImg">
+  <button class="next-lightbox" id="nextLightbox">➡</button>
+</div>
+
+<footer>
+  <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const closeBtn = document.getElementById('closeSearch');
+  const searchBar = document.getElementById('searchBar');
+  const navLinks = document.getElementById('navLinks');
+
+  searchBtn.addEventListener('click', () => {
+    searchBar.style.display = 'block';
+    navLinks.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    searchBar.style.display = 'none';
+    navLinks.style.display = 'flex';
+  });
+
+  // Lightbox JS avec navigation
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeLightbox = document.getElementById('closeLightbox');
+  const prevBtn = document.getElementById('prevLightbox');
+  const nextBtn = document.getElementById('nextLightbox');
+  const images = document.querySelectorAll('.member img');
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      showImage();
+    });
+  });
+
+  function showImage() {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt;
+  }
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage();
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
+  });
+
+  closeLightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
+ 

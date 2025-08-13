@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enregistrement</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f5f5dc;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: none;
+      background: #f5f5dc;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #05775b;
+      margin-top: 1rem;
+    }
+
+    .audio-section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .audio-item {
+      margin-bottom: 2rem;
+    }
+
+    .audio-item h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+    }
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .search-bar input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barre de recherche -->
+<div class="search-bar" id="searchBar">
+  <input type="text" placeholder="Rechercher...">
+  <button class="close-btn" id="closeSearch">✖</button>
+</div>
+
+<!-- Menu -->
+<nav>
+  <ul id="navLinks">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li>
+      <a href="#">Qui sommes-nous ? ▼</a>
+      <ul class="submenu">
+        <li><a href="historique.html">Historique</a></li>
+        <li><a href="directeur.html">Directeur</a></li>
+        <li><a href="Membre.html">Membres</a></li>
+        <li><a href="bureau.html">Bureau et Commission musical</a></li>
+        <li><a href="biographie.html">Biographie des Planificateurs</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nos Réalisations ▼</a>
+      <ul class="submenu">
+        <li><a href="nos.html">Nos Solistes</a></li>
+        <li><a href="enre.html">Enregistrement et Résultats</a></li>
+        <li><a href="image.html">Vidéo</a></li>
+      </ul>
+    </li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+    <li><a href="Instruments.html">Nos Instruments</a></li>
+    <li><a href="login.html">Connexion</a></li>
+    <li><button class="search-btn" id="searchBtn">🔍</button></li>
+  </ul>
+</nav>
+
+<!-- Section audio -->
+<h1>Nos Enregistrements</h1>
+<div class="audio-section">
+  <div class="audio-item">
+    <h3>Enregistrement 1</h3>
+    <audio controls>
+      <source src="Audio1.mp3" type="audio/mp3">
+      Votre navigateur ne supporte pas la lecture audio.
+    </audio>
+  </div>
+
+  <div class="audio-item">
+    <h3>Enregistrement 2</h3>
+    <audio controls>
+      <source src="audio2.mp3" type="audio/mp3">
+      Votre navigateur ne supporte pas la lecture audio.
+    </audio>
+  </div>
+
+  <div class="audio-item">
+    <h3>Enregistrement 3</h3>
+    <audio controls>
+      <source src="Audio3.mp3" type="audio/mp3">
+      Votre navigateur ne supporte pas la lecture audio.
+    </audio>
+  </div>
+
+  <div class="audio-item">
+    <h3>Enregistrement 4 </h3>
+    <audio controls>
+      <source src="Audio4.mp3" type="audio/mp3">
+      Votre navigateur ne supporte pas la lecture audio.
+    </audio>
+  </div>
+
+  <div class="audio-item">
+    <h3>Enregistrement 5</h3>
+    <audio controls>
+      <source src="Audio5.mp3" type="audio/mp3">
+      Votre navigateur ne supporte pas la lecture audio.
+    </audio>
+  </div>
+
+  <div class="audio-item">
+    <h3>Enregistrement 6</h3>
+    <audio controls>
+      <source src="Audio6.opus" type="audio/mp3">
+      Votre navigateur ne supporte pas la lecture audio.
+    </audio>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const closeBtn = document.getElementById('closeSearch');
+  const searchBar = document.getElementById('searchBar');
+  const navLinks = document.getElementById('navLinks');
+
+  searchBtn.addEventListener('click', () => {
+    searchBar.style.display = 'block';
+    navLinks.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    searchBar.style.display = 'none';
+    navLinks.style.display = 'flex';
+  });
+</script>
+
+</body>
+</html>

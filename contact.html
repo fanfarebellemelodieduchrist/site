@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f5f5dc;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: none;
+      background: #f5f5dc;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #05775b;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #05775b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #045e49;
+    }
+
+    .contact-image {
+      flex: 1;
+      max-width: 700px;
+    }
+
+    .contact-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+  .logo-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-title img {
+    height: 100px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  #suggestions {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero {
+    padding: 8rem 2rem;
+  }
+
+  .galerie-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Barre de recherche -->
+<div class="search-bar" id="searchBar">
+  <input type="text" placeholder="Rechercher...">
+  <button class="close-btn" id="closeSearch">✖</button>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <ul id="navLinks">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li>
+      <a href="#">Qui sommes-nous ? ▼</a>
+      <ul class="submenu">
+        <li><a href="historique.html">Historique</a></li>
+        <li><a href="directeur.html">Directeur</a></li>
+        <li><a href="Membre.html">Membres</a></li>
+        <li><a href="bureau.html">Bureau et Commission musical</a></li>
+        <li><a href="biographie.html">Biographie des planifications</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nos Réalisations ▼</a>
+      <ul class="submenu">
+        <li><a href="nos.html">Nos Solistes</a></li>
+        <li><a href="enre.html">Enregistrement et Résultats</a></li>
+        <li><a href="Vide.html">Vidéo</a></li>
+      </ul>
+    </li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+     <li><a href="Instruments.html">Nos Instruments</a></li>
+     <li><a href="login.html">Connexion</a></li>
+    <li><button class="search-btn" id="searchBtn">🔍</button></li>
+  </ul>
+</nav>
+
+<h1>Contact</h1>
+
+<div class="contact-container">
+  <form action="https://formsubmit.co/shalombocovi5@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Nouveau message du site Belle Mélodie">
+    <input type="hidden" name="_next" value="https://bocovishalom.github.io/fanfare-Belle-M-lodie/merci.html">
+
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+    <label for="email">Adresse Email :</label>
+    <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+    <label for="subject">Objet :</label>
+    <input type="text" id="subject" name="subject" placeholder="Sujet" required>
+
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" placeholder="Votre message" rows="6" required></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div class="contact-image">
+    <img src="abb.jpg" alt="Illustration Contact">
+  </div>
+</div>
+
+
+<footer>
+  <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const closeBtn = document.getElementById('closeSearch');
+  const searchBar = document.getElementById('searchBar');
+  const navLinks = document.getElementById('navLinks');
+
+  searchBtn.addEventListener('click', () => {
+    searchBar.style.display = 'block';
+    navLinks.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    searchBar.style.display = 'none';
+    navLinks.style.display = 'flex';
+  });
+</script>
+
+</body>
+</html>

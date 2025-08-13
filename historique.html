@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historique</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f5f5dc;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: none;
+      background: #f5f5dc;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #05775b;
+      margin-top: 2rem;
+    }
+
+    .directeur-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .directeur-text {
+      flex: 1 1 300px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .directeur-image {
+      flex: 1 1 300px;
+      max-width: 400px;
+    }
+
+    .directeur-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+  .logo-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-title img {
+    height: 100px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  #suggestions {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero {
+    padding: 8rem 2rem;
+  }
+
+  .galerie-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta a {
+    width: 100%;
+    text-align: center;
+  }
+ }
+
+  </style>
+</head>
+<body>
+
+<div class="search-bar" id="searchBar">
+  <input type="text" placeholder="Rechercher...">
+  <button class="close-btn" id="closeSearch">✖</button>
+</div>
+
+<nav>
+  <ul id="navLinks">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li>
+      <a href="#">Qui sommes-nous ? ▼</a>
+      <ul class="submenu">
+        <li><a href="historique.html">Historique</a></li>
+        <li><a href="directeur.html">Directeur</a></li>
+        <li><a href="Membre.html">Membres</a></li>
+        <li><a href="bureau.html">Bureau et Commission musical</a></li>
+        <li><a href="biographie.html">Biographie des planifications</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nos Réalisations ▼</a>
+      <ul class="submenu">
+        <li><a href="nos.html">Nos Solistes</a></li>
+        <li><a href="enre.html">Enregistrement et Résultats</a></li>
+        <li><a href="Vide.html">Vidéo</a></li>
+      </ul>
+    </li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+     <li><a href="Instruments.html">Nos Instruments</a></li>
+     <li><a href="login.html">Connexion</a></li>
+    <li><button class="search-btn" id="searchBtn">🔍</button></li>
+  </ul>
+</nav>
+
+<h1>Belle Mélodie du Christ</h1>
+
+<div class="directeur-container">
+  <div class="directeur-text">
+    <p>
+      Fondée dans un élan de foi et de passion musicale, la fanfare la Belle Mélodie du Christ (BMC) ARS avedji voit le jour le 24 février 2011 sous l’initiative inspirée de Monsieur MAGLO Komi Noa Happy, son Président fondateur. Dès ses débuts, la fanfare rassemble 83 membres, témoignant de l’enthousiasme collectif qui animait cette nouvelle oeuvre spirituelle.
+    </p>
+    <p>
+      Le groupe fait ses premiers pas grâce au dévouement de Monsieur NOMESSI Moïse, principal formateur des débuts, qui prend officiellement ses fonctions le 18 novembre 2014 avec un noyau de 33 membres. Sous sa direction, les fondations pédagogiques et musicales de la Belle Mélodie du Christ se consolident
+    </p>
+    <p>
+      La première sortie non officielle a lieu le 12 avril 2014 à l’église ARS Avédji, marquant le début d’une mission musicale sacrée au service de Dieu. Peu après, le 24 mai 2014, le groupe établit son règlement intérieur, posant les bases d’une organisation structurée et disciplinée.
+
+    </p>
+    <p>Un tournant spirituel majeur s’opère le 16 novembre 2014, avec la cérémonie de placement du groupe sous la gouvernance divine, dirigée par le Révérend Sacrificateur Nyeenyami Etsè WOVENU I. Ce moment de consécration spirituelle propulse la fanfare dans une nouvelle dynamique de consécration et de mission.</p>
+    <p>C’est lors de la Pentecôte, le 24 mai 2015, que la fanfare fait officiellement sa sortie, révélant au grand public son talent, sa ferveur et son engagement pour le service divin. Cette période marque aussi l’entrée dans une ère de gloire, avec des moments forts entre 2015 et 2017, puis une résurgence éclatante à partir de 2023 jusqu’à ce jour.</p>
+    <p>Cependant, le parcours de la Belle Mélodie du Christ n’a pas été sans épreuves. Une crise importante frappe le groupe entre Juin 2017 et décembre 2022, mettant à rude épreuve son existence. Mais, dans la foi et la résilience, un nouvel espoir renaît grâce au travail acharné de Monsieur AZIAMADJI Félix. Sa vision salvatrice, axée sur la formation de nouveaux membres, insuffle une vie à la fanfare.</p>
+     <p>Mr Félix est appuyé par la suite dans cette mission de redressement par une équipe dynamique et engagée :</p>
+   </p>
+
+  <ul>
+  <li>M. ALAVI Komi, Président Exécutif</li>
+  <li>M. Jean BOCOVI, Vice-Président Exécutif</li>
+  <li>M. Elom AKLADJA, Gestionnaire des Finances et Secrétaire Général</li>
+  <li>M. Dimiline KAGA, Directeur de la Planification</li>
+  <li>M. Félix AZIAMADJI, Directeur de la Planification</li>
+  <li>M. Bright ASSOGBA, Second Formateur et Directeur Technique</li>
+  <li>M. Francis AGBOGAN, Formateur Adjoint, Major Basse</li>
+  <li>M. Sélom AKPAKLI, Conseiller</li>
+  <li>M. Ina ABOUBACAR, Conseillère</li>
+  <li>M. Mawuli NOVON, Conseiller</li>
+</ul>
+
+  <p>
+     Grâce à leur engagement, leur foi et leur amour pour la musique divine, la 
+        fanfare La Belle Mélodie du Christ ARS Avédji continue aujourd’hui de 
+        rayonner, d’élever les âmes et de marquer les esprits par sa ferveur musicale 
+       et son témoignage vivant de la grâce de Dieu. 
+  </p>
+  </div>
+</div>
+
+
+
+
+<footer>
+  <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const closeBtn = document.getElementById('closeSearch');
+  const searchBar = document.getElementById('searchBar');
+  const navLinks = document.getElementById('navLinks');
+
+  searchBtn.addEventListener('click', () => {
+    searchBar.style.display = 'block';
+    navLinks.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    searchBar.style.display = 'none';
+    navLinks.style.display = 'flex';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+
+  <style>body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f5f5dc;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    /* Bouton recherche dans menu */
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: #05775b;
+      padding: 0;
+    }
+
+    /* Barre de recherche en haut - cachée par défaut */
+    #searchBar {
+      display: none;
+      background-color: #f5f5dc;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    #searchBar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #searchBar button.close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #05775b;
+      margin-top: 2rem;
+    }
+
+    table {
+      width: 90%;
+      border-collapse: collapse;
+      margin: 2rem auto;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #999;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #05775b;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .month {
+      font-weight: bold;
+      background: #ddd;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+  .logo-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-title img {
+    height: 100px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  #suggestions {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero {
+    padding: 8rem 2rem;
+  }
+
+  .galerie-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Barre de recherche -->
+<div class="search-bar" id="searchBar">
+  <input type="text" placeholder="Rechercher...">
+  <button class="close-btn" id="closeSearch">✖</button>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <ul id="navLinks">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li>
+      <a href="#">Qui sommes-nous ? ▼</a>
+      <ul class="submenu">
+        <li><a href="historique.html">Historique</a></li>
+        <li><a href="directeur.html">Directeur</a></li>
+        <li><a href="Membre.html">Membres</a></li>
+        <li><a href="bureau.html">Bureau et Commission musical</a></li>
+        <li><a href="biographie.html">Biographie des planifications</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nos Réalisations ▼</a>
+      <ul class="submenu">
+        <li><a href="nos.html">Nos Solistes</a></li>
+        <li><a href="enre.html">Enregistrement et Résultats</a></li>
+        <li><a href="Vide.html">Vidéo</a></li>
+      </ul>
+    </li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+     <li><a href="Instruments.html">Nos Instruments</a></li>
+     <li><a href="login.html">Connexion</a></li>
+    <li><button class="search-btn" id="searchBtn">🔍</button></li>
+  </ul>
+</nav>
+
+<h1>Calendrier des grandes activités 2025</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Mois</th>
+        <th>Date</th>
+        <th>Activité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="month" rowspan="2">Janvier</td>
+        <td>25</td>
+        <td>Zametoto (dernier samedi du mois) - obligatoire aux membres</td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td>Fête de AKPEDAZÃ</td>
+      </tr>
+      <tr>
+        <td class="month" rowspan="2">Février</td>
+        <td>09</td>
+        <td>Bible Sabbath</td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td>Zametoto</td>
+      </tr>
+      <tr>
+        <td class="month" rowspan="3">Mars</td>
+        <td>01</td>
+        <td>Entretien général des instruments</td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>Declaration Day</td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>Zametoto</td>
+      </tr>
+      <tr>
+        <td class="month" rowspan="4">Avril</td>
+        <td>13</td>
+        <td>Fête des Rameaux</td>
+      </tr>
+      <tr>
+        <td>14 - 20</td>
+        <td>Semaine sainte (présence et prestations obligatoires à tout membre)</td>
+      </tr>
+      <tr>
+        <td>20 (3h00)</td>
+        <td>Caravane pour réveillon de Jésus</td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td>Zametoto</td>
+      </tr>
+      <tr>
+        <td class="month" rowspan="3">Mai</td>
+        <td>11</td>
+        <td>Choirs Day</td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>Ascension</td>
+      </tr>
+      <tr>
+        <td>31</td>
+        <td>Zametoto (Mois principal des préparatifs du 10e anniversaire du groupe, semaine sainte pour nuɖuɖu Kɔkoe)</td>
+      </tr>
+      <tr>
+        <td class="month" rowspan="6">Juin</td>
+        <td>01</td>
+        <td>nuɖuɖu Kɔkoe</td>
+      </tr>
+      <tr>
+        <td>08</td>
+        <td>Célébration du 10e Anniversaire du groupe</td>
+      </tr>
+      <tr>
+        <td>14 - 29</td>
+        <td>Congés obligatoires au groupe</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>Pastor's Day</td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td>Zametoto</td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>Fête des enfants</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+<footer>
+  <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const closeSearch = document.getElementById('closeSearch');
+  const searchBar = document.getElementById('searchBar');
+  const navLinks = document.getElementById('navLinks');
+
+  searchBtn.addEventListener('click', () => {
+    navLinks.style.display = 'none';    // Cache le menu
+    searchBar.style.display = 'flex';   // Affiche la barre recherche
+    searchBar.querySelector('input').focus();
+  });
+
+  closeSearch.addEventListener('click', () => {
+    searchBar.style.display = 'none';   // Cache la barre recherche
+    navLinks.style.display = 'flex';    // Affiche le menu
+  });
+</script>
+
+</body>
+</html>
