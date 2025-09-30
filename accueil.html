@@ -106,12 +106,17 @@
       border-radius: 6px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       min-width: 200px;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
     }
 
     .submenu li a {
       display: block;
       padding: 10px 14px;
       color: #05775b;
+      white-space: nowrap;
     }
 
     .submenu li a:hover {
@@ -119,8 +124,12 @@
       color: #fff;
     }
 
-    #navLinks li:hover .submenu {
+    /* Affiche le sous-menu si on survole le parent OU le sous-menu */
+    #navLinks li:hover > .submenu,
+    #navLinks li .submenu:hover {
       display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* === DIAPORAMA === */
@@ -189,6 +198,7 @@
       padding: 1rem;
       margin-top: 5rem;
     }
+
   </style>
 </head>
 <body>
@@ -243,10 +253,10 @@
       <img src="f.jpg" alt="Photo 1">
     </div>
     <div class="mySlides fade">
-      <img src="z.jpg" alt="Photo 2">
+      <img src="aae.jpg" alt="Photo 2">
     </div>
     <div class="mySlides fade">
-      <img src="shar .jpg" alt="Photo 3">
+      <img src="har .jpg" alt="Photo 3">
     </div>
   </div>
 
@@ -260,6 +270,10 @@
 
 <section>
   <p>La Belle Mélodie du Christ est une fanfare chrétienne dédiée à la louange, à l'excellence musicale et à la fraternité.</p>
+</section>
+
+
+<section>
   <p>Email : labellemelodieduchrist@gmail.com</p>
   <p>Téléphone : +228 90 99 77 58</p>
   <p>Suivez-nous : Facebook | Instagram | YouTube</p>
