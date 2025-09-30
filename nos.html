@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nos Solistes</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f5f5dc;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: none;
+      background: #f5f5dc;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #05775b;
+      margin-top: 2rem;
+    }
+
+    .comite-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+
+    .member {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 1rem;
+      cursor: pointer;
+    }
+
+    .member img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .member img:hover {
+      transform: scale(1.05);
+    }
+
+    .member h3 {
+      margin: 1rem 0 0.5rem;
+      color: #05775b;
+    }
+
+    .member p {
+      margin: 0;
+      color: #333;
+    }
+
+    /* Lightbox avec navigation */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .lightbox .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 2rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .lightbox .prev-lightbox,
+    .lightbox .next-lightbox {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    .lightbox .prev-lightbox {
+      left: 20px;
+    }
+
+    .lightbox .next-lightbox {
+      right: 20px;
+    }
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 9rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="search-bar" id="searchBar">
+  <input type="text" placeholder="Rechercher...">
+  <button class="close-btn" id="closeSearch">✖</button>
+</div>
+
+<nav>
+  <ul id="navLinks">
+    <li><a href="accueil.html">Accueil</a></li>
+    <li>
+      <a href="#">Qui sommes-nous ? ▼</a>
+      <ul class="submenu">
+        <li><a href="historique.html">Historique</a></li>
+        <li><a href="directeur.html">Directeur</a></li>
+        <li><a href="Membre.html">Membres</a></li>
+        <li><a href="bureau.html">Bureau et Commission musical</a></li>
+        <li><a href="biographie.html">Biographies</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Nos Réalisations ▼</a>
+      <ul class="submenu">
+        <li><a href="nos.html">Nos Solistes</a></li>
+        <li><a href="anre.html">Enregistrement et Résultats</a></li>
+        <li><a href="https://www.tiktok.com/@b_right.09?_r=1&_d=ehbcf7a6e08ckd&sec_uid=MS4wLjABAAAAftNfx6SM3Gz0wH1W3RN7gKLaYinmrsitE_y_N4TGTvz0tOQgirlVKJimDxXui11Q&share_author_id=6996723711680693253&sharer_language=fr&source=h5_m&u_code=dk65j3kc8gig5e&timestamp=1753568685&user_id=6996723711680693253&sec_user_id=MS4wLjABAAAAftNfx6SM3Gz0wH1W3RN7gKLaYinmrsitE_y_N4TGTvz0tOQgirlVKJimDxXui11Q&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7525892475309000504&share_link_id=16aa0432-7c2d-489e-8b59-023a47b09d05&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1">Vidéo</a></li>
+      </ul>
+    </li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+     <li><a href="Instruments.html">Nos Instruments</a></li>
+     <li><a href="inscription.html">Inscriptiion</a></li>
+     <li><a href="login.html">Connexion</a></li>
+    <li><button class="search-btn" id="searchBtn">🔍</button></li>
+  </ul>
+</nav>
+
+<h1>Les Solistes de la Belle Mélodie</h1>
+
+<section class="comite-container">
+
+  <div class="member"><img src="abc.jpg" alt="Mr Bright"><h3>Mr Bright ASSOGBA</h3><p>  Soprano</p></div>
+  <div class="member"><img src="courage boss.jpg" alt="Mr Courage"><h3>Mr Courage TAMAKLOE </h3><p>Alto</p></div>
+  <div class="member"><img src="abcd.jpg" alt="seyram"><h3>Mr Séyram TOMETI </h3><p>Tenor</p></div>
+  <div class="member"><img src="bri.jpg" alt="Mr francis"><h3>Mr Francis AGBOGAN</h3><p>Basse</p></div>
+  <div class="member"><img src="nestor.jpg" alt="Mr selom"><h3>Mr Nestor NOVON</h3><p>Percussion</p></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="close-lightbox" id="closeLightbox">✖</button>
+  <button class="prev-lightbox" id="prevLightbox">⬅</button>
+  <img src="" alt="Agrandissement" id="lightboxImg">
+  <button class="next-lightbox" id="nextLightbox">➡</button>
+</div>
+
+<footer>
+  <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const closeBtn = document.getElementById('closeSearch');
+  const searchBar = document.getElementById('searchBar');
+  const navLinks = document.getElementById('navLinks');
+
+  searchBtn.addEventListener('click', () => {
+    searchBar.style.display = 'block';
+    navLinks.style.display = 'none';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    searchBar.style.display = 'none';
+    navLinks.style.display = 'flex';
+  });
+
+  // Lightbox JS avec navigation
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const closeLightbox = document.getElementById('closeLightbox');
+  const prevBtn = document.getElementById('prevLightbox');
+  const nextBtn = document.getElementById('nextLightbox');
+  const images = document.querySelectorAll('.member img');
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      showImage();
+    });
+  });
+
+  function showImage() {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.alt = images[currentIndex].alt;
+  }
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage();
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
+  });
+
+  closeLightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
