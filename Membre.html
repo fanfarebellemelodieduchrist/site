@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membres</title>
+  <link rel="icon" type="image/png" href="logo.jpg" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #f5f5dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #05775b;
+      text-decoration: none;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #f5f5dc;
+      list-style: none;
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav .submenu li {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+    }
+
+    nav li:hover .submenu {
+      display: block;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .search-bar {
+      display: none;
+      background: #f5f5dc;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 50%;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #05775b;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #05775b;
+      margin-top: 1rem;
+    }
+
+    .members {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 2rem;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .member {
+      background: #888;
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: 8px;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .bannert { background: #611a1a; }
+    .porte { background: #c8aaaa; }
+    .directeur { background: #000; }
+    .fille { background: #b98181; }
+    .percussion { background: #4b5320; }
+
+    footer {
+      background-color: #05775b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+  .logo-title {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-title img {
+    height: 100px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  #suggestions {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero {
+    padding: 8rem 2rem;
+  }
+
+  .galerie-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+
+  .cta a {
+    width: 100%;
+    text-align: center;
+  }
+ }
+
+  </style>
+</head>
+<body>
+  <div class="search-bar" id="searchBar">
+    <input type="text" placeholder="Rechercher...">
+    <button class="close-btn" id="closeSearch">✖</button>
+  </div>
+
+  <nav>
+    <ul id="navLinks">
+      <li><a href="accueil.html">Accueil</a></li>
+      <li>
+        <a href="#">Qui sommes-nous ? ▼</a>
+        <ul class="submenu">
+          <li><a href="historique.html">Historique</a></li>
+          <li><a href="directeur.html">Directeur</a></li>
+          <li><a href="Membre.html">Membres</a></li>
+          <li><a href="bureau.html">Bureau et Commission musical</a></li>
+          <li><a href="biographie.html">Biographies</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Nos Réalisations ▼</a>
+        <ul class="submenu">
+          <li><a href="nos.html">Nos Solistes</a></li>
+          <li><a href="anre.html">Enregistrement et Résultats</a></li>
+          <li><a href="https://www.tiktok.com/@b_right.09?_r=1&_d=ehbcf7a6e08ckd&sec_uid=MS4wLjABAAAAftNfx6SM3Gz0wH1W3RN7gKLaYinmrsitE_y_N4TGTvz0tOQgirlVKJimDxXui11Q&share_author_id=6996723711680693253&sharer_language=fr&source=h5_m&u_code=dk65j3kc8gig5e&timestamp=1753568685&user_id=6996723711680693253&sec_user_id=MS4wLjABAAAAftNfx6SM3Gz0wH1W3RN7gKLaYinmrsitE_y_N4TGTvz0tOQgirlVKJimDxXui11Q&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7525892475309000504&share_link_id=16aa0432-7c2d-489e-8b59-023a47b09d05&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1">Vidéo</a></li>
+        </ul>
+      </li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="calendrier.html">Calendrier</a></li>
+       <li><a href="Instruments.html">Nos Instruments</a></li>
+       <li><a href="inscription.html">Inscription</a></li>
+       <li><a href="login.html">Connexion</a></li>
+      <li><button class="search-btn" id="searchBtn">🔍</button></li>
+    </ul>
+  </nav>
+
+  <h1>Membres</h1>
+  <h2>Membres Actifs</h2>
+  <div class="members">
+    <!-- Trompette -->
+    <div class="member bannert">Trompette</div>
+    <div class="row">
+      <div class="member fille">Mixa KPONGBE <p>Trompette</p><p>Soprano</p></div>
+      <div class="member fille">Mawuko AKLADJA <p>Trompette</p><p>Soprano</p></div>
+      <div class="member fille">Cyril AHIANYO <p>Trompette</p><p>Soprano</p></div>
+      <div class="member fille">Joël GBODEKOU <p>Trompette</p><p>Soprano</p></div>
+      <div class="member fille">Ewoenam DEGLO <p>Trompette</p><p>Soprano</p></div>
+      <div class="member fille">Courage TAMAKLOE <p>Trompette</p><p>Alto</p></div>
+      <div class="member fille">Edudzi SAKA <p>Trompette</p><p>Alto</p></div>
+      <div class="member fille">Madowodedzi AGBOVE <p>Trompette</p><p>Alto</p></div>
+      <div class="member fille">Dzidula TROVOR <p>Trompette</p><p>Alto</p></div>
+    </div>
+
+    <!-- Trombone -->
+    <div class="member porte">Trombone</div>
+    <div class="row">
+      <div class="member fille">Seyram TOMETI <p>Trombone</p><p>Ténor</p></div>
+      <div class="member fille">Roland POYORDI <p>Trombone</p><p>Ténor</p></div>
+      <div class="member fille">Shalom BOCOVI <p>Trombone</p><p>Ténor</p></div>
+      <div class="member fille">Sélom AKPAKLI <p>Trombone</p><p>Ténor</p></div>
+      <div class="member fille">Mawuli NOVON <p>Trombone</p><p>Ténor</p></div>
+    </div>
+
+    <!-- Basse -->
+    <div class="member porte">Basse</div>
+    <div class="row">
+      <div class="member fille">Francis AGBOGAN <p>Tuba</p><p>Basse</p></div>
+      <div class="member fille">Jean BOCOVI <p>Baryton</p><p>Basse</p></div>
+      <div class="member fille">Elom AKLADJA <p>Baryton</p><p>Basse</p></div>
+    </div>
+
+    <!-- Percussion -->
+    <div class="member percussion">Percussion</div>
+    <div class="row">
+      <div class="member fille">Nestor NOVON<p>Grosse Caisse</p></div>
+      <div class="member fille">Etsiam AKPAKLI  <p>Caisse claire</p></div>
+      <div class="member fille">Séyram ALABA  <p>Caisse claire</p></div>
+      <div class="member fille">Mawuto WIGAMA <p>Cymbales</p></div>
+       <div class="member fille">Mathieu EGUEH <p>Cymbales</p></div>
+      <div class="member fille">Jean AZIAKA  <p>Tamboure jumelles</p></div>
+      <div class="member fille"> Mme AKLADJA Nukunu <p>Tome</p></div>
+      <div class="member fille">Rémy YELE  <p>Timb castagnettes</p></div>
+      <div class="member fille">Célacé ALAVI <p>Gon</p></div>
+      <div class="member fille">Magava AKPAKLI<p>Trambours traditionnel</p></div>
+    </div>
+
+    <!-- Directeur -->
+    <div class="row">
+      <div class="member directeur">Bright ASSOGBA<p>Directeur Technique</p></div>
+    </div>
+  </div>
+<div class="honor-section">
+  <h2>Membre d'Honneur</h2>
+  <ul>
+     <li><h2>M. AMAGLO Komi Happy Noa: Président Fondateur de la Belle Mélodie du Christ</h2></li>
+  <li><h2>TROVOR Agbemavor</h2></li>
+  <li><h2> TROVOR Mawugboko</h2></li>
+  <li><h2>Clinique ELIKE</h2></li>
+  </ul>
+</div>
+ <div class="honor-section">
+  <h2>Membre Passif</h2>
+   <ul>
+     <li><h2></h2></li>
+     <li><h2></h2></li>
+     <li><h2></h2></li>
+     <li><h2></h2></li>
+  </ul>
+</div>
+
+
+  <footer>
+    <p>&copy; 2025 Fanfare La Belle Mélodie du Christ. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const searchBtn = document.getElementById('searchBtn');
+    const closeBtn = document.getElementById('closeSearch');
+    const searchBar = document.getElementById('searchBar');
+    const navLinks = document.getElementById('navLinks');
+
+    searchBtn.addEventListener('click', () => {
+      searchBar.style.display = 'block';
+      navLinks.style.display = 'none';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      searchBar.style.display = 'none';
+      navLinks.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
